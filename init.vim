@@ -23,6 +23,17 @@ nmap ;t :tabnew<CR>
 " extra
 set noswapfile
 set noeb vb t_vb=  " disable beep
+set updatetime=100
+set noshowmode
+let g:python_recommended_style = 0
+filetype plugin indent on
+" extra
+set noswapfile
+set noeb vb t_vb=  " disable beep
+set updatetime=100
+set noshowmode
+let g:python_recommended_style = 0
+filetype plugin indent on
 " plugins
 call plug#begin('~/.config/plugged')
 Plug 'ojroques/vim-oscyank'
@@ -32,8 +43,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
 call plug#end()
-
-set updatetime=100
+" plugins keybinds
+nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 au TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif
+" plugins look
 colorscheme gruvbox
+let g:lightline = { 'colorscheme': 'wombat' } 
+
